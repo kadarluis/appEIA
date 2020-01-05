@@ -9,6 +9,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { BreadcrumsComponent } from './shared/breadcrums/breadcrums.component';
+import { APP_ROUTES } from './app.routes';
+import { PagesComponent } from './pages/pages.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +20,13 @@ import { BreadcrumsComponent } from './shared/breadcrums/breadcrums.component';
     DashboardComponent,
     HeaderComponent,
     SidebarComponent,
-    BreadcrumsComponent
+    BreadcrumsComponent,
+    PagesComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    APP_ROUTES
   ],
   providers: [],
   bootstrap: [AppComponent]

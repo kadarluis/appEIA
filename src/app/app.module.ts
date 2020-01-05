@@ -11,6 +11,7 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { BreadcrumsComponent } from './shared/breadcrums/breadcrums.component';
 import { APP_ROUTES } from './app.routes';
 import { PagesComponent } from './pages/pages.component';
+import { RegisterComponent } from './login/register.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PagesComponent } from './pages/pages.component';
     HeaderComponent,
     SidebarComponent,
     BreadcrumsComponent,
-    PagesComponent
+    PagesComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

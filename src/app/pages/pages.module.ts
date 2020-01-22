@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { PAGE_ROUTES } from './pages.routes';
 
 import { SharedModule } from '../shared/shared.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -18,7 +19,8 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
          DashboardComponent
      ],
      imports: [
-         SharedModule
+         SharedModule,
+         PAGE_ROUTES
      ]
 
 })

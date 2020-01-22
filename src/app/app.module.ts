@@ -1,7 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+/* ROUTES */
 import { AppRoutingModule } from './app-routing.module';
+
+/* MODULE */
+import { PagesModule } from './pages/pages.module';
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { NopagefoundComponent } from './pages/nopagefound/nopagefound.component';
@@ -17,18 +22,19 @@ import { RegisterComponent } from './login/register.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    NopagefoundComponent,
-    DashboardComponent,
-    HeaderComponent,
-    SidebarComponent,
-    BreadcrumsComponent,
-    PagesComponent,
+    /* NopagefoundComponent,
+    DashboardComponent, */
+    // HeaderComponent,
+    // SidebarComponent,
+    // BreadcrumsComponent,
+    /* PagesComponent, */
     RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    APP_ROUTES
+    APP_ROUTES,
+    PagesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

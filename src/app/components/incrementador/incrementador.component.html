@@ -1,0 +1,20 @@
+<div class="card">
+    <h5 class="card-header">Barra de progreso</h5>
+    <div class="card-body">
+
+
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped" role="progressbar" [style.width]="porcentaje + '%'" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <br>
+
+        <div class="input-group mb-3">
+
+            <button class="btn btn-primary" type="button" (click)="incrementar(-5)"><i class="mdi mdi-minus"></i></button>
+            <input [(ngModel)]="porcentaje" type="text" class="form-control" aria-label="Example text with two button addons" aria-describedby="button-addon3">
+            <button class="btn btn-primary" type="button" (click)="incrementar(5)"><i class="mdi mdi-plus"></i></button>
+
+        </div>
+
+    </div>
+</div>

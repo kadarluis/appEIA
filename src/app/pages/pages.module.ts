@@ -5,13 +5,16 @@ import { SharedModule } from '../shared/shared.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PagesComponent } from './pages.component';
 import { NopagefoundComponent } from './nopagefound/nopagefound.component';
+import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
         PagesComponent,
         NopagefoundComponent,
-        DashboardComponent
+        DashboardComponent,
+        IncrementadorComponent
       ],
      exports: [
          PagesComponent,
@@ -20,7 +23,8 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
      ],
      imports: [
          SharedModule,
-         PAGE_ROUTES
+         PAGE_ROUTES,
+         FormsModule
      ]
 
 })

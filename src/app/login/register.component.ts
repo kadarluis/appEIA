@@ -2,6 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
+import Swal from 'sweetalert2';
+
+/* SERVICIO */
+import { UsuarioService } from '../services/usuario/usuario.service';
+import { Usuario } from '../models/usuario.model';
+import { Router } from '@angular/router';
+
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -12,7 +20,10 @@ export class RegisterComponent implements OnInit {
   // Declaro el formulario
   forma: FormGroup;
 
-  constructor() { }
+  constructor(
+    public _usuarioService: UsuarioService,
+    public router: Router
+  ) { }
 
   // funcion para verificar si las contraseñas son iguales
   sonIguales(campo1: string, campo2: string){
@@ -53,9 +64,28 @@ export class RegisterComponent implements OnInit {
 
 registrarUsuario() {
   if (this.forma.invalid) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Registro inválido!!!',
+      text: 'Las contraseñas no coinciden'
+    });
     return;
   }
-  console.log('forma valida: ', this.forma.valid);
-  console.log(this.forma.value);
+
+  let usuario = new Usuario (
+    this.forma.value.nombre,
+    this.forma.value.correo,
+    this.forma.value.password
+  );
+
+  this._usuarioService.creaUsuario(usuario)
+                      .subscribe(res =>{
+                        
+                        console.log(res);
+                        
+                        //Redirecciono al login
+                        this.router.navigate(['/login']);
+
+                      });
   }
 }

@@ -8,11 +8,15 @@ import { APP_ROUTES } from './app.routes';
 /* MODULE */
 import { PagesModule } from './pages/pages.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 /* COMPONENT */
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
+
+/* SERVICIOS */
+import { UsuarioService } from './services/usuario/usuario.service';
 
 @NgModule({
   declarations: [
@@ -26,9 +30,10 @@ import { RegisterComponent } from './login/register.component';
     APP_ROUTES,
     PagesModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [UsuarioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

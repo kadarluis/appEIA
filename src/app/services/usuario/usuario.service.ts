@@ -21,7 +21,15 @@ export class UsuarioService {
   
   }
 
-  creaUsuario(usuario: Usuario){
+  login( usurio: Usuario ) {
+
+    let url = URL_SERVICIOS + '/login';
+
+    return this.http.post( url, usurio )
+
+  };
+
+  creaUsuario( usuario: Usuario ) {
 
   let url = URL_SERVICIOS + '/user';
   

@@ -25,7 +25,14 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    let usuario = new Usuario(null, forma.value.email, forma.value.password);
+    console.log( forma.valid );
+    console.log( forma.value );
+    
+
+    let usuario = new Usuario(null, null, forma.value.email, forma.value.password, null, null);
+
+    console.log( usuario );
+    
 
     this._usuarioService.login( usuario )
         .subscribe (res => {

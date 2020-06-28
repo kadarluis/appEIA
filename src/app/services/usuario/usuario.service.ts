@@ -25,7 +25,7 @@ export class UsuarioService {
 
     let url = URL_SERVICIOS + '/login';
 
-    return this.http.post( url, usurio )
+    return this.http.post( url, usurio );
 
   };
 

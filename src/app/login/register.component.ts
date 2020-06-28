@@ -47,6 +47,7 @@ export class RegisterComponent implements OnInit {
     // defino el formulario
     this.forma = new FormGroup({
       nombre: new FormControl(null, Validators.required),
+      apellido: new FormControl(null, Validators.required),
       correo: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, Validators.required),
       password2: new FormControl(null, Validators.required),
@@ -54,9 +55,10 @@ export class RegisterComponent implements OnInit {
     }, { validators: this.sonIguales( 'password', 'password2') } );
 
     this.forma.setValue({
-          nombre: 'Luis Gaviria',
+          nombre: 'Luis',
+          apellido: 'Gaviria',
           correo: 'kadarluis@hotmail.com',
-          password: '12344',
+          password: '123',
           password2: '123',
           condiciones: true
       });
@@ -74,6 +76,7 @@ registrarUsuario() {
 
   let usuario = new Usuario (
     this.forma.value.nombre,
+    this.forma.value.apellido,
     this.forma.value.correo,
     this.forma.value.password
   );

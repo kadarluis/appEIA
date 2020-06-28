@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "appEIA"
+    }
+  },
+  "defaultProject": "appEIA",
+  "cli": {
+    "analytics": "72bfbefe-26df-4d6f-b8fe-f74bebbd8072"
+  }
 }

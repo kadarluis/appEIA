@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UsuarioService } from '../services/usuario/usuario.service';
 import { Usuario } from '../models/usuario.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
   recuerdame: boolean = false;
   
   constructor(
-    public _usuarioService: UsuarioService
+    public _usuarioService: UsuarioService,
+    public router: Router
   ) { }
 
 
@@ -25,19 +27,12 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    console.log( forma.valid );
-    console.log( forma.value );
-    
-
     let usuario = new Usuario(null, null, forma.value.email, forma.value.password, null, null);
-
-    console.log( usuario );
-    
 
     this._usuarioService.login( usuario )
         .subscribe (res => {
-          console.log(res);
+          this.router.navigate(['/dashboard']);
         });
-  };
+  }
 
 }

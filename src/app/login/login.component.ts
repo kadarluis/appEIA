@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { UsuarioService } from '../services/usuario/usuario.service';
 import { Usuario } from '../models/usuario.model';
 import { Router } from '@angular/router';
+import { timeStamp } from 'console';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +14,7 @@ export class LoginComponent implements OnInit {
   
   recuerdame: boolean = true;
   email: string;
+  password: '123';
   
   constructor(
     public _usuarioService: UsuarioService,
@@ -22,6 +24,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.email = localStorage.getItem('email') || '';
+    this.password = '123';
   }
 
   ingresar( forma: NgForm ) {

@@ -17,6 +17,7 @@ import { RegisterComponent } from './login/register.component';
 
 /* SERVICIOS */
 import { UsuarioService } from './services/usuario/usuario.service';
+import { LoginGuardGuard } from './services/guards/login-guard.guard';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { UsuarioService } from './services/usuario/usuario.service';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [UsuarioService],
+  providers: [UsuarioService, LoginGuardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

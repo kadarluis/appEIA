@@ -14,11 +14,30 @@ import { pipe } from 'rxjs';
 })
 export class UsuarioService {
 
+  usuario: Usuario;
+  token: string;
+
+  estaLogueado( ) {
+    return (this.token.length > 0) ? true : false;
+  }
+
+  cargarStorege( ) {
+    if( localStorage.getItem('token')) {
+      this.token = localStorage.getItem('Token');
+      this.usuario = JSON.parse( localStorage.getItem('Usuario') );
+    } else {
+      this.token = '';
+      this.usuario = null;
+    }
+  
+  }
+
   constructor(
     public http: HttpClient
   ) { 
 
     console.log('UsuarioService listo para usar');
+    this.cargarStorege();
   
   }
 
@@ -37,6 +56,8 @@ export class UsuarioService {
                   localStorage.setItem('Id', res.id);
                   localStorage.setItem('Token', res.token);
                   localStorage.setItem('Usuario', JSON.stringify(res.usuarioDB));
+                  this.usuario = res.usuarioDB;
+                  this.token = res.token;
                   return true;
                 }));
   }

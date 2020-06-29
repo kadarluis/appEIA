@@ -82,13 +82,9 @@ registrarUsuario() {
   );
 
   this._usuarioService.creaUsuario(usuario)
-                      .subscribe(res =>{
-                        
+                      .subscribe(res => {
                         console.log(res);
-                        
-                        //Redirecciono al login
-                        this.router.navigate(['/login']);
-
+                        this.router.navigate(['/login']); // Redirecciono al login
                       });
   }
 }

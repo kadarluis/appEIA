@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   
-  recuerdame: boolean = false;
+  recuerdame: boolean = true;
+  email: string;
   
   constructor(
     public _usuarioService: UsuarioService,
@@ -20,6 +21,7 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit() {
+    this.email = localStorage.getItem('email') || '';
   }
 
   ingresar( forma: NgForm ) {
@@ -29,7 +31,7 @@ export class LoginComponent implements OnInit {
 
     let usuario = new Usuario(null, null, forma.value.email, forma.value.password, null, null);
 
-    this._usuarioService.login( usuario )
+    this._usuarioService.login( usuario, forma.value.recuerdame )
         .subscribe (res => {
           this.router.navigate(['/dashboard']);
         });

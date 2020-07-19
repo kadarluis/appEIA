@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UsuarioService } from '../../services/usuario/usuario.service';
+import { Usuario } from '../../models/usuario.model';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,7 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  Usuario =  JSON.parse(localStorage.getItem('Usuario'));
+
+  constructor(
+    public usuarioService: UsuarioService
+  ) { }
+
+  logout() {
+    this.usuarioService.logout();
+  }
 
   ngOnInit() {
   }

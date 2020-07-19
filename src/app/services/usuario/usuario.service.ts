@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 
 import Swal from 'sweetalert2';
 import { pipe } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 
@@ -21,8 +22,17 @@ export class UsuarioService {
     return (this.token.length > 0) ? true : false;
   }
 
+  logout() {
+    this.usuario = null;
+    this.token = '';
+    localStorage.removeItem('Usuario');
+    localStorage.removeItem('Token');
+    localStorage.removeItem('Id');
+    this.route.navigate(['/login']);
+  }
+
   cargarStorege( ) {
-    if( localStorage.getItem('token')) {
+    if( localStorage.getItem('Token')) {
       this.token = localStorage.getItem('Token');
       this.usuario = JSON.parse( localStorage.getItem('Usuario') );
     } else {
@@ -33,7 +43,8 @@ export class UsuarioService {
   }
 
   constructor(
-    public http: HttpClient
+    public http: HttpClient,
+    public route: Router
   ) { 
 
     console.log('UsuarioService listo para usar');
